@@ -40,6 +40,7 @@ public class StudentCourseTest {
     @Test
     public void testFindStudentById() {
         Student s = StudentSv.findStudentById((long) 1);
+        System.out.println(s.toString());
         assertThat(s.getId()).isEqualTo(1);
     }
 
