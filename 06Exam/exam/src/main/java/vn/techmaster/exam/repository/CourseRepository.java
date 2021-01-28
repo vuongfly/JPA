@@ -11,5 +11,4 @@ import vn.techmaster.exam.model.Course;
 @Repository
 public interface CourseRepository extends JpaRepository<Course, Long>{
     Optional<Course> findCourseById(Long id);
-    void addCourse(Course course);
 }

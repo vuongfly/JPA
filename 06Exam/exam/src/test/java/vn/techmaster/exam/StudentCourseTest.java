@@ -41,8 +41,16 @@ public class StudentCourseTest {
     @Test
     public void testFindStudentById() {
         Student s = studentRepo.findStudentById((long) 1).get();
+        List<Student> studentList = studentRepo.findAll();
         System.out.println(s.toString());
         assertThat(s.getId()).isEqualTo(1);
+    }
+
+    @Test
+    public void testListAllStudent() {
+        List<Student> studentList = studentRepo.findAll();
+        System.out.println(studentList.toString());
+        assertThat(studentList).hasSizeGreaterThan(3);
     }
 
     // @Test
