@@ -16,6 +16,7 @@ import vn.techmaster.exam.model.Course;
 import vn.techmaster.exam.model.StudentCourse;
 import vn.techmaster.exam.repository.CategoryRepository;
 import vn.techmaster.exam.repository.StudentCourseRepository;
+import vn.techmaster.exam.repository.StudentRepository;
 import vn.techmaster.exam.service.CategoryService;
 import vn.techmaster.exam.service.CourseService;
 import vn.techmaster.exam.service.StudentCourseService;
@@ -27,25 +28,25 @@ import vn.techmaster.exam.service.StudentService;
 // @Sql("classpath:sql/course.sql")
 // @Sql("classpath:sql/student_course.sql")
 public class StudentCourseTest {
-    // @Autowired private StudentCourseRepository scRepo;
+    @Autowired private StudentCourseRepository scRepo;
+    @Autowired private StudentRepository studentRepo;
     // @Autowired StudentCourseService studentCourseSv;
-    StudentService StudentSv;
-    CourseService CourseSv;
+    
 
-    @Test
-    public void testFindStudentCoursesByCourses() {
+    // @Test
+    // public void testFindStudentCoursesByCourses() {
 
-    }
+    // }
 
     @Test
     public void testFindStudentById() {
-        Student s = StudentSv.findStudentById((long) 1);
+        Student s = studentRepo.findStudentById((long) 1).get();
         System.out.println(s.toString());
         assertThat(s.getId()).isEqualTo(1);
     }
 
-    @Test
-    public void testFindCourseById() {
+    // @Test
+    // public void testFindCourseById() {
 
-    }
+    // }
 }

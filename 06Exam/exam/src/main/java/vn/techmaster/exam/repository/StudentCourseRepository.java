@@ -13,4 +13,5 @@ import vn.techmaster.exam.model.StudentCourse;
 public interface StudentCourseRepository extends JpaRepository<StudentCourse, Long> {
     List<StudentCourse> findStudentCoursesByCourses(Course course);
     List<StudentCourse> findStudentCoursesByStudents(Student student);
+    void addStudentCourse(Student student, Course course);
 }
