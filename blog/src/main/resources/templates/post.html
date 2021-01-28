@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A post</title>
+</head>
+
+<body>
+    <div th:if="${post != null}">
+        <h2 th:text="${post.title}"></h2>
+        <p th:text="${post.content}"></p>
+
+    </div>
+    <hr>
+    <div th:if="${post.comments != null}">
+        <div th:each="comment : ${post.comments}">
+            <form action="#" th:action="@{/comment/remove}" method="post">
+                <a th:text="${comment.content}"></a>
+                <button type="submit">remove</button>
+            </form>
+        </div>
+    </div>
+    <hr>
+
+    <form action="#" th:action="@{/comment/add}" method="post">
+        <span hidden th:value="postId" th:text="${post.title}"></span>
+        <label for="comment">Comment:</label><br>
+        <textarea th:value="comment" name="comment" id="" cols="30" rows="10"></textarea> <br>
+        <button type="submit">Add</button>
+    </form>
+</body>
+
+</html>
